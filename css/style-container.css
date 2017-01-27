@@ -9,21 +9,21 @@ h1 {
 }
 
 h2 {
-	font-weight: bold;
+  font-weight: bold;
   font-size: 14px;
 }
 
 form {
-	padding-left:   3%;
-	padding-right:  3%;
-	padding-bottom: 3%;
+  padding-left:   3%;
+  padding-right:  3%;
+  padding-bottom: 3%;
 }
 
 #personal-info {
-	padding-top: 1%;
+  padding-top: 1%;
 }
 
 #tree-selection {
-	padding-top: 3%;
+  padding-top: 3%;
 }
 
