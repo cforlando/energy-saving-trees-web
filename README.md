@@ -10,9 +10,13 @@ Slack: londonatlas
 
 One Person One Tree web app will allow users to view trees they can have delivered to their home and contribute to reducing energy expenditures via the One Person One Tree initiative.
 
+## Setup
+
+`npm install webpack-dev-server -g`
+
 ## Version
 
-0.0.0
+0.0.1
 
 ## Feature List
 
@@ -28,7 +32,9 @@ N/A
 
 ## Using
 
-N/A
+- Angular 1.6.2
+- Sass
+- Webpack
 
 ## License
 
