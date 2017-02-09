@@ -1,55 +1,42 @@
 /*jslint browser: true*/
 /*global $*/
 
-$("#choose-tree").change(function () {
-  "use strict";
+/** @type { Object }  */
+var TREES = {
+  'Live Oak': { image: 'img/trees/Live-Oak.png' },
+  'Nuttall Oak': { image: 'img/trees/Nuttall-Oak.png' },
+  'Magnolia': { image: 'img/trees/Magnolia.png' },
+  'Winged Elm': { image: 'img/trees/Winged-Elm.png' },
+  'Tabebuia Ipe (Trumpet Tree)': { image: 'img/trees/Tabebuia-Ipe.png' },
+  'Eagleston Holly': { image: 'img/trees/Eagleston-Holly.png' },
+  'Yaupon Holly': { image: 'img/trees/Yaupon-Holly.png' },
+  'Crape Myrtle': { image: 'img/trees/Crape-Myrtle.png' },
+  'Yellow Tabebuia (Trumpet Tree)': { image: 'img/trees/Yellow-Tabebuia.png' },
+  'Elaeocarpus (Japanese Blueberry)': { image: 'img/trees/Elaeocarpus.png' }
+};
 
-  var selected_text = $(this).find("option:selected").text(),
-    old_img_src = "",
-    new_img_src = "";
+/**
+ * @function
+ * @description Callback function for change event on tree selection
+ * @returns { Void }
+ */
+function treeSelectionHandler() {
+  var selectedText = $(this).find("option:selected").text().trim();
+  var oldImgSrc = $("#tree-image img").attr("src");
+  var newImgSrc = TREES[selectedText].image;
+  var imageSelector = 'img[src="' + oldImgSrc + '"]';
 
-  if (selected_text === "Live Oak") {
+  $(imageSelector).attr("src", newImgSrc);
+}
 
-    new_img_src = "img/Live-Oak.png";
+/**
+ * @function
+ * @description Callback function for when the document loads. Registers events on the DOM
+ * @returns { Void }
+ */
+function onReadyHandler() {
+  $("#choose-tree").change(treeSelectionHandler);
+}
 
-  } else if (selected_text === "Nuttall Oak") {
-
-    new_img_src = "img/Nuttall-Oak.png";
-
-  } else if (selected_text === "Magnolia") {
-
-    new_img_src = "img/Magnolia.png";
-
-  } else if (selected_text === "Winged Elm") {
-    
-    new_img_src = "img/Winged-Elm.png";
-    
-  } else if (selected_text === "Tabebuia Ipe (Pink Trumpet Tree)") {
-
-    new_img_src = "img/Tabebuia-Ipe.png";
-
-  } else if (selected_text === "Eagleston Holly") {
-
-    new_img_src = "img/Eagleston-Holly.png";
-
-  } else if (selected_text === "Yaupon Holly") {
-
-    new_img_src = "img/Yaupon-Holly.png";
-
-  } else if (selected_text === "Crape Myrtle") {
-
-    new_img_src = "img/Crape-Myrtle.png";
-
-  } else if (selected_text === "Yellow Tabebuia (Trumpet Tree)") {
-
-    new_img_src = "img/Yellow-Tabebuia.png";
-
-  } else if (selected_text === "Elaeocarpus (Japanese Blueberry)") {
-
-    new_img_src = "img/Elaeocarpus.png";
-
-  }
-
-  old_img_src = $("#tree-image img").attr("src");
-  $('img[src="' + old_img_src + '"]').attr("src", new_img_src);
-});
+/** Bootstrap the application on document load */
+$(document).ready(onReadyHandler);
