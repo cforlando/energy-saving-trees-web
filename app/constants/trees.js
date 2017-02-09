@@ -1,4 +1,9 @@
-const TREES = [
+/**
+ * @module
+ * @description List of tree objects to be used in the form
+ * @type Object[]
+ */
+export default [
   {
     label: 'Live Oak',
     image: 'img/trees/Live-Oak.png'
@@ -39,6 +44,4 @@ const TREES = [
     label: 'Elaeocarpus (Japanese Blueberry)',
     image: 'img/trees/Elaeocarpus.png'
   }
-];
-
-export default TREES;
+];;
