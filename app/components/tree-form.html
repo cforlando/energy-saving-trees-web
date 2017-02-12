@@ -1,44 +1,71 @@
-<form>
-  <fieldset>
-    <label for='first-name'>First Name</label>
-    <input ng-model='$ctrl.firstName' name='first-name' type='text' placeholder='First Name'>
-  </fieldset>
-  <fieldset>
-    <label for='last-name'>Last Name</label>
-    <input ng-model='$ctrl.lastName' name='last-name' type='text' placeholder='Last Name'>
-  </fieldset>
-  <fieldset>
-    <label for='address'>Address</label>
-    <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress'>
-  </fieldset>
-  <fieldset>
-    <label for='city'>City</label>
-    <input ng-model='$ctrl.city' name='city' type='text' placeholder='City'>
-  </fieldset>
-  <fieldset>
-    <label for='state'>State</label>
-    <input ng-model='$ctrl.state' name='state' type='text' placeholder='State'>
-  </fieldset>
-  <fieldset>
-    <label for='zip'>Zip</label>
-    <input ng-model='$ctrl.zip' name='zip' type='text' placeholder='Zip'>
-  </fieldset>
-  <fieldset>
-    <label for='email'>Email</label>
-    <input ng-model='$ctrl.email' name='email' type='text' placeholder='Email'>
-  </fieldset>
-  <fieldset>
-    <label for='phone'>Phone</label>
-    <input ng-model='$ctrl.phone' name='phone' type='text' placeholder='Phone'>
-  </fieldset>
-  <fieldset>
-    <label for="tree">Choose a Tree:</label>
-    <select ng-model='$ctrl.tree' name='tree'>
-      <option ng-repeat="tree in $ctrl.trees" value='{{tree.image}}'>{{tree.label}}</option>
-    </select>
-    <img src='{{ $ctrl.tree }}' alt='selected tree'/>
-  </fieldset>
-  <fieldset>
-    <button ng-click='$ctrl.submit()' type='button'>Submit</button>
-  </fieldset>
-</form>
+<div ng-if='$ctrl.currentStep == 0'>
+  <h3>Pick a Tree</h3>
+  <form>
+    <fieldset>
+      <label for="tree">Choose a Tree:</label>
+      <select ng-model='$ctrl.tree' name='tree'>
+        <option ng-repeat="tree in $ctrl.trees" value='{{tree.image}}'>{{tree.label}}</option>
+      </select>
+      <img src='{{ $ctrl.tree }}' alt='selected tree'/>
+    </fieldset>
+    <fieldset>
+      <button ng-click='$ctrl.next()'>Next</button>
+    </fieldset>
+  </form>
+</div>
+
+<div ng-if='$ctrl.currentStep == 1'>
+  <h3>Enter Your Contact Information</h3>
+  <form>
+    <fieldset>
+      <label for='first-name'>First Name</label>
+      <input ng-model='$ctrl.firstName' name='first-name' type='text' placeholder='First Name'>
+    </fieldset>
+    <fieldset>
+      <label for='last-name'>Last Name</label>
+      <input ng-model='$ctrl.lastName' name='last-name' type='text' placeholder='Last Name'>
+    </fieldset>
+    <fieldset>
+      <label for='email'>Email</label>
+      <input ng-model='$ctrl.email' name='email' type='text' placeholder='Email'>
+    </fieldset>
+    <fieldset>
+      <label for='phone'>Phone</label>
+      <input ng-model='$ctrl.phone' name='phone' type='text' placeholder='Phone'>
+    </fieldset>
+    <fieldset>
+      <button ng-click='$ctrl.back()'>Back</button>
+      <button ng-click='$ctrl.next()'>Next</button>
+    </fieldset>
+  </form>
+</div>
+
+<div ng-if='$ctrl.currentStep == 2'>
+  <h3>Enter Your Delivery Information</h3>
+  </form>
+    <fieldset>
+      <label for='address'>Address</label>
+      <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress'>
+    </fieldset>
+    <fieldset>
+      <label for='city'>City</label>
+      <input ng-model='$ctrl.city' name='city' type='text' placeholder='City'>
+    </fieldset>
+    <fieldset>
+      <label for='state'>State</label>
+      <input ng-model='$ctrl.state' name='state' type='text' placeholder='State'>
+    </fieldset>
+    <fieldset>
+      <label for='zip'>Zip</label>
+      <input ng-model='$ctrl.zip' name='zip' type='text' placeholder='Zip'>
+    </fieldset>
+    <fieldset>
+      <button ng-click='$ctrl.back()'>Back</button>
+      <button ng-click='$ctrl.submit()' type='button'>Submit</button>
+    </fieldset>
+  </form>
+</div>
+
+<div ng-if='$ctrl.currentStep == 3'>
+  <h3>Confirmation</h3>
+</div>

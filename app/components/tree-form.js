@@ -15,6 +15,8 @@ export default {
    * @returns { Void }
    */
   controller() {
+
+    // Form Data
     this.trees = TREES;
     this.tree = '';
     this.firstName = '';
@@ -25,6 +27,20 @@ export default {
     this.zip = '';
     this.email = '';
     this.phone = '';
+
+    this.currentStep = 0;
+
+    this.back = ()=> {
+      if(this.currentStep === 0) {
+        return;
+      }
+
+      this.currentStep--;
+    };
+
+    this.next = ()=> {
+      this.currentStep++;
+    };
 
     this.submit = ()=> {
       console.log('Make call with...', {
@@ -38,6 +54,7 @@ export default {
         email: this.email,
         phone: this.phone
       });
+      this.currentStep++;
     }
   }
 
