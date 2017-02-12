@@ -1,6 +1,6 @@
 <div ng-if='$ctrl.currentStep == 0'>
   <h3>Pick a Tree</h3>
-  <form>
+  <form class='form'>
     <fieldset>
       <label for="tree">Choose a Tree:</label>
       <select ng-model='$ctrl.tree' name='tree'>
@@ -8,15 +8,15 @@
       </select>
       <img src='{{ $ctrl.tree }}' alt='selected tree'/>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.next()'>Next</button>
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 1'>
   <h3>Enter Your Contact Information</h3>
-  <form>
+  <form class='form'>
     <fieldset>
       <label for='first-name'>First Name</label>
       <input ng-model='$ctrl.firstName' name='first-name' type='text' placeholder='First Name'>
@@ -33,16 +33,16 @@
       <label for='phone'>Phone</label>
       <input ng-model='$ctrl.phone' name='phone' type='text' placeholder='Phone'>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.back()'>Back</button>
-      <button ng-click='$ctrl.next()'>Next</button>
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
+      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 2'>
   <h3>Enter Your Delivery Information</h3>
-  </form>
+  <form class='form'>
     <fieldset>
       <label for='address'>Address</label>
       <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress'>
@@ -59,9 +59,9 @@
       <label for='zip'>Zip</label>
       <input ng-model='$ctrl.zip' name='zip' type='text' placeholder='Zip'>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.back()'>Back</button>
-      <button ng-click='$ctrl.submit()' type='button'>Submit</button>
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
+      <button class='button button--success' ng-click='$ctrl.submit()' type='button'>Submit</button>
     </fieldset>
   </form>
 </div>

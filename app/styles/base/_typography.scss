@@ -1,0 +1,38 @@
+html, body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-font-size * 1.5;
+  color: $black-color;
+}
+
+h1 {
+  font-size: $larger-font-size;
+  line-height: $larger-font-size * 1.5;
+  text-align: center;
+
+  span {
+    display: none;
+  }
+}
+
+h2 {
+  font-size: $large-font-size;
+  line-height: $large-font-size * 1.5;
+  text-align: center;
+}
+
+h3 {
+  font-size: $medium-font-size;
+  line-height: $medium-font-size * 1.5;
+  text-align: center;
+}
+
+a {
+  color: $continue-color;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: lighten($continue-color, 10);
+  }
+}

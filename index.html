@@ -4,17 +4,14 @@
     <title>Tree Planting Program Online Application</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
   <body ng-app='app'>
-    <img src="img/citylogo_db.png" alt="City of Orlando">
-    <h1>Tree Planting Program Online Application</h1>
-    <p>Applicants must reside within Orlando City Limits. Find out if you do by
-      <a target="_blank" href="http://www2.cityoforlando.net/orlandoinformationlocator/">clicking here</a>
-    </p>
-
-    <tree-form></tree-form>
-
+    <cfo-navbar></cfo-navbar>
+    <div class='container'>
+      <cfo-tree-form></cfo-tree-form>
+    </div>
+    <cfo-footer></cfo-footer>
     <script type='text/javascript' src="dist/bundle.js" charset='utf8'></script>
   </body>
 </html>
