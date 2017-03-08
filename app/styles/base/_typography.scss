@@ -1,13 +1,13 @@
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: $base-font-size;
-  line-height: $base-font-size * 1.5;
+  line-height: $base-font-size * 2;
   color: $black-color;
 }
 
 h1 {
   font-size: $larger-font-size;
-  line-height: $larger-font-size * 1.5;
+  line-height: $larger-font-size * 2;
   text-align: center;
 
   span {
@@ -17,13 +17,15 @@ h1 {
 
 h2 {
   font-size: $large-font-size;
-  line-height: $large-font-size * 1.5;
+  line-height: $large-font-size * 2;
   text-align: center;
 }
 
 h3 {
   font-size: $medium-font-size;
-  line-height: $medium-font-size * 1.5;
+  line-height: $medium-font-size * 2;
+  margin-top: $base-font-size * 2;
+  margin-bottom: $base-font-size * 2;
   text-align: center;
 }
 
@@ -35,4 +37,9 @@ a {
   &:hover {
     color: lighten($continue-color, 10);
   }
+}
+
+p, ul {
+  margin-top: $base-font-size * 2;
+  margin-bottom: $base-font-size * 2;
 }

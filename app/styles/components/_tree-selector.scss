@@ -1,0 +1,26 @@
+.tree-selector {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &__column {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    * { text-align: left; }
+
+    &--centered {
+      text-align: center;
+    }
+  }
+
+  select {
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 15px;
+    padding-left: 60px;
+  }
+}
