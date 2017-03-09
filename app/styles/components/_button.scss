@@ -1,0 +1,28 @@
+.button {
+  width: 250px;
+  height: 75px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: $medium-font-size;
+  transition: 0.3s;
+
+  &--continue {
+    background-color: $continue-color;
+    color: $white-color;
+
+    &:hover {
+      background-color: lighten($continue-color, 10);
+    }
+  }
+
+  &--success {
+    background-color: $success-color;
+    color: $white-color;
+
+    &:hover {
+      background-color: lighten($success-color, 10);
+    }
+  }
+}

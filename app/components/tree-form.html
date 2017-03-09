@@ -1,22 +1,40 @@
 <div ng-if='$ctrl.currentStep == 0'>
-  <h3>Pick a Tree</h3>
-  <form>
+  <h2>Pick a Tree</h2>
+  <form class='form'>
+    
     <fieldset>
-      <label for="tree">Choose a Tree:</label>
-      <select ng-model='$ctrl.tree' name='tree'>
-        <option ng-repeat="tree in $ctrl.trees" value='{{tree.image}}'>{{tree.label}}</option>
-      </select>
-      <img src='{{ $ctrl.tree }}' alt='selected tree'/>
+      <div class='tree-selector'>
+        <div class='tree-selector__column'>
+          <label for="tree">Choose a Tree:</label>
+          <select style='background-image: url({{$ctrl.trees[$ctrl.tree].image}})' ng-model='$ctrl.tree' name='tree'>
+            <option ng-repeat="tree in $ctrl.trees" value='{{$index}}'>{{tree.label}}</option>
+          </select>
+          <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
+          <ul>
+            <li>Tree Data 1: Lorem ipsum dolor set</li>
+            <li>Tree Data 2: Lorem ipsum dolor set</li>
+            <li>Tree Data 3: Lorem ipsum dolor set</li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet ullamcorper dolor.
+            Phasellus in diam consectetur, sollicitudin magna quis, ultrices sem.
+          </p>
+        </div>
+        <div class='tree-selector__column tree-selector__column--centered'>
+          <img src='{{ $ctrl.trees[$ctrl.tree].image }}' alt='{{ $ctrl.trees[$ctrl.tree].label }}'/>
+        </div>
+      </div>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.next()'>Next</button>
+
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 1'>
-  <h3>Enter Your Contact Information</h3>
-  <form>
+  <h2>Enter Your Contact Information</h2>
+  <form class='form'>
     <fieldset>
       <label for='first-name'>First Name</label>
       <input ng-model='$ctrl.firstName' name='first-name' type='text' placeholder='First Name'>
@@ -33,16 +51,16 @@
       <label for='phone'>Phone</label>
       <input ng-model='$ctrl.phone' name='phone' type='text' placeholder='Phone'>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.back()'>Back</button>
-      <button ng-click='$ctrl.next()'>Next</button>
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
+      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 2'>
-  <h3>Enter Your Delivery Information</h3>
-  </form>
+  <h2>Enter Your Delivery Information</h2>
+  <form class='form'>
     <fieldset>
       <label for='address'>Address</label>
       <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress'>
@@ -59,13 +77,13 @@
       <label for='zip'>Zip</label>
       <input ng-model='$ctrl.zip' name='zip' type='text' placeholder='Zip'>
     </fieldset>
-    <fieldset>
-      <button ng-click='$ctrl.back()'>Back</button>
-      <button ng-click='$ctrl.submit()' type='button'>Submit</button>
+    <fieldset class='form__actions'>
+      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
+      <button class='button button--success' ng-click='$ctrl.submit()' type='button'>Submit</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 3'>
-  <h3>Confirmation</h3>
+  <h2>Confirmation</h2>
 </div>
