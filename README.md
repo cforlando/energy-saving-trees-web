@@ -12,7 +12,15 @@ One Person One Tree web app will allow users to view trees they can have deliver
 
 ## Setup
 
+`npm install webpack -g`
+
 `npm install webpack-dev-server -g`
+
+`npm install -g protractor`
+
+`webdriver-manager update`
+
+`webdriver-manager start`
 
 ## Version
 
