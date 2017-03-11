@@ -18,7 +18,7 @@ export default {
 
     // Form Data
     this.trees = TREES;
-    this.tree = '';
+    this.tree = '0';
     this.firstName = '';
     this.lastName = '';
     this.address = '';
