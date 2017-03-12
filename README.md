@@ -20,7 +20,24 @@ One Person One Tree web app will allow users to view trees they can have deliver
 
 `webdriver-manager update`
 
+## Running Tests
+
+Navigate to the root of the project
+
+### Terminal 1 ( Start our selenium server )
+
+`webdriver-manager update`
+
 `webdriver-manager start`
+
+### Terminal 2 ( Start our local application server )
+
+`webpack-dev-server`
+
+
+### Terminal 3 ( Run tests )
+
+`npm test`
 
 ## Version
 
