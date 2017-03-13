@@ -20,7 +20,7 @@ export default {
     // Form Data
     this.trees = TREES;
     this.zips = ZIP_CODES;
-    this.tree = '';
+    this.tree = '0';
     this.firstName = '';
     this.lastName = '';
     this.address = '';
