@@ -1,8 +1,14 @@
 .navbar {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
+  box-shadow: 0 0 5px $black-color;
+
+  h1 {
+    line-height: 0;
+  }
   
   img {
-    max-width: 500px;
+    max-width: 200px;
   }
 }

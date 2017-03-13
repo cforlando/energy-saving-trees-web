@@ -1,4 +1,9 @@
 .form {
+
+  .form__label--required {
+    &:after { content:" *"; }
+  }
+
   label {
     display: block;
     margin: 5px 0;
@@ -17,6 +22,10 @@
 
     &:focus {
       border: 2px solid $continue-color;
+    }
+
+    &.ng-invalid:not(.ng-pristine) {
+      border: 2px solid $error-color;
     }
   }
 
