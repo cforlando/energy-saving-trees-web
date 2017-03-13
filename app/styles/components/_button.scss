@@ -15,6 +15,11 @@
     &:hover {
       background-color: lighten($continue-color, 10);
     }
+
+    &[disabled='disabled'] {
+      background-color: lighten($continue-color, 20);
+      cursor: default;
+    }
   }
 
   &--success {
@@ -23,6 +28,11 @@
 
     &:hover {
       background-color: lighten($success-color, 10);
+    }
+
+    &[disabled='disabled'] {
+      background-color: lighten($success-color, 20);
+      cursor: default;
     }
   }
 }

@@ -1,4 +1,5 @@
 import TREES from '../constants/trees';
+import ZIP_CODES from '../constants/zips';
 
 /**
  * @module
@@ -18,6 +19,7 @@ export default {
 
     // Form Data
     this.trees = TREES;
+    this.zips = ZIP_CODES;
     this.tree = '';
     this.firstName = '';
     this.lastName = '';

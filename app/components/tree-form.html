@@ -1,12 +1,12 @@
 <div ng-if='$ctrl.currentStep == 0'>
   <h2>Pick a Tree</h2>
-  <form class='form'>
+  <form class='form' name='treeForm'>
     
     <fieldset>
       <div class='tree-selector'>
         <div class='tree-selector__column'>
           <label for="tree">Choose a Tree:</label>
-          <select style='background-image: url({{$ctrl.trees[$ctrl.tree].image}})' ng-model='$ctrl.tree' name='tree'>
+          <select style='background-image: url({{$ctrl.trees[$ctrl.tree].image}})' ng-model='$ctrl.tree' name='tree' required>
             <option ng-repeat="tree in $ctrl.trees" value='{{$index}}'>{{tree.label}}</option>
           </select>
           <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
@@ -27,59 +27,58 @@
     </fieldset>
 
     <fieldset class='form__actions'>
-      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
+      <button class='button button--continue' ng-click='$ctrl.next()' ng-disabled="treeForm.$invalid">Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 1'>
   <h2>Enter Your Contact Information</h2>
-  <form class='form'>
+  <form class='form' name='contactForm'>
     <fieldset>
-      <label for='first-name'>First Name</label>
-      <input ng-model='$ctrl.firstName' name='first-name' type='text' placeholder='First Name'>
+      <label for='first-name' class='form__label--required'>First Name</label>
+      <input ng-model='$ctrl.firstName' name='firstName' type='text' placeholder='First Name' required>
+      <p ng-show="contactForm.firstName.$invalid && !contactForm.firstName.$pristine">You first name is required.</p>
     </fieldset>
     <fieldset>
-      <label for='last-name'>Last Name</label>
-      <input ng-model='$ctrl.lastName' name='last-name' type='text' placeholder='Last Name'>
+      <label for='lastName' class='form__label--required'>Last Name</label>
+      <input ng-model='$ctrl.lastName' name='last-name' type='text' placeholder='Last Name' required>
+      <p ng-show="contactForm.lastName.$invalid && !contactForm.lastName.$pristine">You last name is required.</p>
     </fieldset>
     <fieldset>
-      <label for='email'>Email</label>
-      <input ng-model='$ctrl.email' name='email' type='text' placeholder='Email'>
+      <label for='email' class='form__label--required'>Email</label>
+      <input ng-model='$ctrl.email' name='email' type='email' placeholder='Email' required>
+      <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine">A valid email is required.</p>
     </fieldset>
     <fieldset>
-      <label for='phone'>Phone</label>
-      <input ng-model='$ctrl.phone' name='phone' type='text' placeholder='Phone'>
+      <label for='phone' class='form__label--required'>Phone</label>
+      <input ng-model='$ctrl.phone' name='phoneNumber' type='text' placeholder='Phone' required>
+      <p ng-show="contactForm.phoneNumber.$invalid && !contactForm.phoneNumber.$pristine">A valid phone number is required.</p>
     </fieldset>
     <fieldset class='form__actions'>
       <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
-      <button class='button button--continue' ng-click='$ctrl.next()'>Next</button>
+      <button class='button button--continue' ng-click='$ctrl.next()' ng-disabled="contactForm.$invalid">Next</button>
     </fieldset>
   </form>
 </div>
 
 <div ng-if='$ctrl.currentStep == 2'>
   <h2>Enter Your Delivery Information</h2>
-  <form class='form'>
+  <form class='form' name='deliveryForm'>
     <fieldset>
-      <label for='address'>Address</label>
-      <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress'>
-    </fieldset>
-    <fieldset>
-      <label for='city'>City</label>
-      <input ng-model='$ctrl.city' name='city' type='text' placeholder='City'>
-    </fieldset>
-    <fieldset>
-      <label for='state'>State</label>
-      <input ng-model='$ctrl.state' name='state' type='text' placeholder='State'>
+      <label for='address' class='form__label--required'>Address</label>
+      <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress' required>
+      <p ng-show="deliveryForm.address.$invalid && !deliveryForm.address.$pristine">You must provide an address</p>
     </fieldset>
     <fieldset>
       <label for='zip'>Zip</label>
-      <input ng-model='$ctrl.zip' name='zip' type='text' placeholder='Zip'>
+      <select name='zip' ng-model='$ctrl.zip' required>
+        <option ng-repeat="zip in $ctrl.zips" value='{{zip}}'>{{zip}}</option>
+      </select>
     </fieldset>
     <fieldset class='form__actions'>
       <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
-      <button class='button button--success' ng-click='$ctrl.submit()' type='button'>Submit</button>
+      <button class='button button--success' ng-click='$ctrl.submit()' type='button' ng-disabled="deliveryForm.$invalid">Submit</button>
     </fieldset>
   </form>
 </div>
