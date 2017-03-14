@@ -26,7 +26,7 @@ export default {
     this.address = '';
     this.city = '';
     this.state = '';
-    this.zip = '';
+    this.zip = '32801';
     this.email = '';
     this.phone = '';
 
