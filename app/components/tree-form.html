@@ -5,29 +5,43 @@
     <fieldset>
       <div class='tree-selector'>
         <div class='tree-selector__column'>
-          <label for="tree">Choose a Tree:</label>
-          <select style='background-image: url({{$ctrl.trees[$ctrl.tree].image}})' ng-model='$ctrl.tree' name='tree' required>
-            <option ng-repeat="tree in $ctrl.trees" value='{{$index}}'>{{tree.label}}</option>
+          <label id='treeLabel'
+                 for="tree">Choose a Tree:</label>
+          <select style='background-image: url({{$ctrl.trees[$ctrl.tree].image}})'
+                  aria-controls='tree-info'
+                  ng-model='$ctrl.tree'
+                  name='tree'
+                  required>
+            <option ng-repeat="tree in $ctrl.trees" 
+                    value='{{$index}}'>{{tree.label}}</option>
           </select>
-          <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
-          <ul>
-            <li>Tree Data 1: Lorem ipsum dolor set</li>
-            <li>Tree Data 2: Lorem ipsum dolor set</li>
-            <li>Tree Data 3: Lorem ipsum dolor set</li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet ullamcorper dolor.
-            Phasellus in diam consectetur, sollicitudin magna quis, ultrices sem.
-          </p>
+          <div role='region'
+               id='tree-image'
+               aria-live='polite'>
+            <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
+            <ul>
+              <li>Tree Data 1: Lorem ipsum dolor set</li>
+              <li>Tree Data 2: Lorem ipsum dolor set</li>
+              <li>Tree Data 3: Lorem ipsum dolor set</li>
+            </ul>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet ullamcorper dolor.
+              Phasellus in diam consectetur, sollicitudin magna quis, ultrices sem.
+            </p>
+          </div>
         </div>
         <div class='tree-selector__column tree-selector__column--centered'>
-          <img src='{{ $ctrl.trees[$ctrl.tree].image }}' alt='{{ $ctrl.trees[$ctrl.tree].label }}'/>
+          <img src='{{ $ctrl.trees[$ctrl.tree].image }}'
+               alt='{{ $ctrl.trees[$ctrl.tree].label }}'/>
         </div>
       </div>
     </fieldset>
 
     <fieldset class='form__actions'>
-      <button class='button button--continue' ng-click='$ctrl.next()' ng-disabled="treeForm.$invalid">Next</button>
+      <button role='button'
+              class='button button--continue'
+              ng-click='$ctrl.next()'
+              ng-disabled="treeForm.$invalid">Next</button>
     </fieldset>
   </form>
 </div>
@@ -35,29 +49,80 @@
 <div ng-if='$ctrl.currentStep == 1'>
   <h2>Enter Your Contact Information</h2>
   <form class='form' name='contactForm'>
+    
     <fieldset>
-      <label for='first-name' class='form__label--required'>First Name</label>
-      <input ng-model='$ctrl.firstName' name='firstName' type='text' placeholder='First Name' required>
-      <p ng-show="contactForm.firstName.$invalid && !contactForm.firstName.$pristine">You first name is required.</p>
+      <label id='firstNameLabel'
+             for='firstName'
+             class='form__label--required'>First Name</label>
+      <input cfo-auto-focus
+             ng-model='$ctrl.firstName'
+             aria-labelledby='firstNameLabel'
+             aria-describedby='firstNameLabelValidationError'
+             name='firstName'
+             type='text'
+             placeholder='First Name'
+             required>
+      <p id'firstNameLabelValidationError'
+         role='alert'
+         ng-show="contactForm.firstName.$invalid && !contactForm.firstName.$pristine">You first name is required.</p>
     </fieldset>
+    
     <fieldset>
-      <label for='lastName' class='form__label--required'>Last Name</label>
-      <input ng-model='$ctrl.lastName' name='last-name' type='text' placeholder='Last Name' required>
-      <p ng-show="contactForm.lastName.$invalid && !contactForm.lastName.$pristine">You last name is required.</p>
+      <label id='lastNameLabel'
+             for='lastName'
+             class='form__label--required'>Last Name</label>
+      <input ng-model='$ctrl.lastName'
+             aria-labelledby='lastNameLabel'
+             aria-describedby='lastNameLabelValidationError'
+             name='last-name'
+             type='text'
+             placeholder='Last Name'
+             required>
+      <p id='lastNameLabelValidationError'
+         role='alert'
+         ng-show="contactForm.lastName.$invalid && !contactForm.lastName.$pristine">You last name is required.</p>
     </fieldset>
+    
     <fieldset>
-      <label for='email' class='form__label--required'>Email</label>
-      <input ng-model='$ctrl.email' name='email' type='email' placeholder='Email' required>
-      <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine">A valid email is required.</p>
+      <label id='emailLabel'
+             for='email'
+             class='form__label--required'>Email</label>
+      <input ng-model='$ctrl.email'
+             aria-labelledby='emailLabel'
+             aria-describedby='emailLabelValidationError'
+             name='email'
+             type='email'
+             placeholder='Email'
+             required>
+      <p id='emailLabelValidationError'
+         role='alert'
+         ng-show="contactForm.email.$invalid && !contactForm.email.$pristine">A valid email is required.</p>
     </fieldset>
+    
     <fieldset>
-      <label for='phone' class='form__label--required'>Phone</label>
-      <input ng-model='$ctrl.phone' name='phoneNumber' type='text' placeholder='Phone' required>
-      <p ng-show="contactForm.phoneNumber.$invalid && !contactForm.phoneNumber.$pristine">A valid phone number is required.</p>
+      <label id='phoneLabel'
+             for='phone'
+             class='form__label--required'>Phone</label>
+      <input ng-model='$ctrl.phone'
+             aria-labelledby='phoneLabel'
+             aria-describedby='phoneLabelValidationError'
+             name='phoneNumber'
+             type='text'
+             placeholder='Phone'
+             required>
+      <p id='phoneLabelValidationError'
+         role='alert'
+         ng-show="contactForm.phoneNumber.$invalid && !contactForm.phoneNumber.$pristine">A valid phone number is required.</p>
     </fieldset>
+    
     <fieldset class='form__actions'>
-      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
-      <button class='button button--continue' ng-click='$ctrl.next()' ng-disabled="contactForm.$invalid">Next</button>
+      <button role='button'
+              class='button button--continue'
+              ng-click='$ctrl.back()'>Back</button>
+      <button role='button'
+              class='button button--continue'
+              ng-click='$ctrl.next()'
+              ng-disabled="contactForm.$invalid">Next</button>
     </fieldset>
   </form>
 </div>
@@ -65,20 +130,46 @@
 <div ng-if='$ctrl.currentStep == 2'>
   <h2>Enter Your Delivery Information</h2>
   <form class='form' name='deliveryForm'>
+    
     <fieldset>
-      <label for='address' class='form__label--required'>Address</label>
-      <input ng-model='$ctrl.address' name='address' type='text' placeholder='Adress' required>
-      <p ng-show="deliveryForm.address.$invalid && !deliveryForm.address.$pristine">You must provide an address</p>
+      <label id='addressLabel'
+             for='address'
+             class='form__label--required'>Address</label>
+      <input cfo-auto-focus
+             ng-model='$ctrl.address'
+             aria-labelledby='addressLabel'
+             aria-describedby='addressLabelValidationError'
+             name='address'
+             type='text'
+             placeholder='Adress'
+             required>
+      <p id='addressLabelValidationError'
+         role='alert'
+         ng-show="deliveryForm.address.$invalid && !deliveryForm.address.$pristine">You must provide an address</p>
     </fieldset>
+    
     <fieldset>
-      <label for='zip'>Zip</label>
-      <select name='zip' ng-model='$ctrl.zip' required>
-        <option ng-repeat="zip in $ctrl.zips" value='{{zip}}'>{{zip}}</option>
+      <label id='zipLabel'
+             for='zip'>Zip</label>
+      <select name='zip'
+              ng-model='$ctrl.zip'
+              aria-labelledby='zipLabel'
+              required>
+        <option ng-repeat="zip in $ctrl.zips"
+                value='{{zip}}'>{{zip}}</option>
       </select>
     </fieldset>
+    
     <fieldset class='form__actions'>
-      <button class='button button--continue' ng-click='$ctrl.back()'>Back</button>
-      <button class='button button--success' ng-click='$ctrl.submit()' type='button' ng-disabled="deliveryForm.$invalid">Submit</button>
+      <button role='button'
+              type='button'
+              class='button button--continue'
+              ng-click='$ctrl.back()'>Back</button>
+      <button role='button'
+              type='button'
+              class='button button--success'
+              ng-click='$ctrl.submit()'
+              ng-disabled="deliveryForm.$invalid">Submit</button>
     </fieldset>
   </form>
 </div>
