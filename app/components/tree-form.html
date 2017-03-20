@@ -18,6 +18,9 @@
           <div role='region'
                id='tree-image'
                aria-live='polite'>
+            <img src='{{ $ctrl.trees[$ctrl.tree].image }}'
+                 alt='{{ $ctrl.trees[$ctrl.tree].label }}'
+                 class='tree-selector__mobile-tree'/>
             <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
             <ul>
               <li>Tree Data 1: Lorem ipsum dolor set</li>
@@ -32,7 +35,8 @@
         </div>
         <div class='tree-selector__column tree-selector__column--centered'>
           <img src='{{ $ctrl.trees[$ctrl.tree].image }}'
-               alt='{{ $ctrl.trees[$ctrl.tree].label }}'/>
+               alt='{{ $ctrl.trees[$ctrl.tree].label }}'
+               class='tree-selector__desktop-tree'/>
         </div>
       </div>
     </fieldset>

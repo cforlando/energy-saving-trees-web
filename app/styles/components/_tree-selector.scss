@@ -17,10 +17,41 @@
     }
   }
 
+  &__desktop-tree {
+    display: block;
+  }
+
+  &__mobile-tree {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: none;
+  }
+
   select {
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: 15px;
     padding-left: 60px;
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .tree-selector {
+    * {
+      text-align: center;
+    }
+    
+    &__column {
+      width: 100%;
+    }
+
+    &__desktop-tree {
+      display: none;
+    }
+
+    &__mobile-tree {
+      display: block;
+    }
   }
 }

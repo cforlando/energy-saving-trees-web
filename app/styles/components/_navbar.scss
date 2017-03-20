@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   box-shadow: 0 0 5px $black-color;
 
@@ -10,5 +11,13 @@
   
   img {
     max-width: 200px;
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .navbar {
+    img {
+      max-width: 100px;
+    }
   }
 }
