@@ -1,0 +1,10 @@
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -300px;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 300px;
+  }
+}
