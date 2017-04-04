@@ -13,29 +13,36 @@
                   name='tree'
                   required>
             <option ng-repeat="tree in $ctrl.trees" 
-                    value='{{$index}}'>{{tree.label}}</option>
+                    value='{{$index}}'>{{tree.name}}</option>
           </select>
           <div role='region'
                id='tree-image'
                aria-live='polite'>
             <img src='{{ $ctrl.trees[$ctrl.tree].image }}'
-                 alt='{{ $ctrl.trees[$ctrl.tree].label }}'
+                 alt='{{ $ctrl.trees[$ctrl.tree].name }}'
                  class='tree-selector__mobile-tree'/>
-            <h3>{{ $ctrl.trees[$ctrl.tree].label }}</h3>
-            <ul>
-              <li>Tree Data 1: Lorem ipsum dolor set</li>
-              <li>Tree Data 2: Lorem ipsum dolor set</li>
-              <li>Tree Data 3: Lorem ipsum dolor set</li>
-            </ul>
+            <h3>{{ $ctrl.trees[$ctrl.tree].name }}</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet ullamcorper dolor.
-              Phasellus in diam consectetur, sollicitudin magna quis, ultrices sem.
+              {{ $ctrl.trees[$ctrl.tree].description }}
             </p>
+            <ul>
+              <li><strong>Shape: </strong>{{ $ctrl.trees[$ctrl.tree].shape }}</li>
+              <li><strong>Full Sun: </strong>{{ $ctrl.trees[$ctrl.tree].full_sun | cfoYesNo }}</li>
+              <li><strong>Partial Sun: </strong>{{ $ctrl.trees[$ctrl.tree].partial_sun | cfoYesNo }}</li>
+              <li><strong>Partial Shade: </strong>{{ $ctrl.trees[$ctrl.tree].partial_shade | cfoYesNo }}</li>
+              <li><strong>Soil: </strong>{{ $ctrl.trees[$ctrl.tree].soil | cfoSemiColonToComma }}</li>
+              <li><strong>Moisture: </strong>{{ $ctrl.trees[$ctrl.tree].moisture }}</li>
+              <li><strong>Leaf: </strong>{{ $ctrl.trees[$ctrl.tree].leaf }}</li>
+              <li><strong>Max Height: </strong>{{ $ctrl.trees[$ctrl.tree].max_height_cm | cfoCmToInches }}</li>
+              <li><strong>Min Height: </strong>{{ $ctrl.trees[$ctrl.tree].min_height_cm | cfoCmToInches }}</li>
+              <li><strong>Max Width: </strong>{{ $ctrl.trees[$ctrl.tree].max_width_cm | cfoCmToInches }}</li>
+              <li><strong>Min Width: </strong>{{ $ctrl.trees[$ctrl.tree].min_width_cm | cfoCmToInches }}</li>
+            </ul>
           </div>
         </div>
         <div class='tree-selector__column tree-selector__column--centered'>
           <img src='{{ $ctrl.trees[$ctrl.tree].image }}'
-               alt='{{ $ctrl.trees[$ctrl.tree].label }}'
+               alt='{{ $ctrl.trees[$ctrl.tree].name }}'
                class='tree-selector__desktop-tree'/>
         </div>
       </div>
