@@ -1,7 +1,23 @@
-<div ng-if='$ctrl.currentStep == 0'>
+<div ng-if='$ctrl.currentStep == 1'>
   <h2>Pick a Tree</h2>
+</div>
+
+<div ng-if='$ctrl.currentStep == 2'>
+  <h2>Enter Your Contact Information</h2>
+</div>
+
+<div ng-if='$ctrl.currentStep == 3'>
+  <h2>Enter Your Delivery Information</h2>
+</div>
+
+<div ng-if='$ctrl.currentStep == 4'>
+  <h2>Confirmation</h2>
+</div>
+
+<cfo-progress step='$ctrl.currentStep' total='$ctrl.numSteps'></cfo-progress>
+
+<div ng-if='$ctrl.currentStep == 1'>
   <form class='form' name='treeForm'>
-    
     <fieldset>
       <div class='tree-selector'>
         <div class='tree-selector__column'>
@@ -57,8 +73,7 @@
   </form>
 </div>
 
-<div ng-if='$ctrl.currentStep == 1'>
-  <h2>Enter Your Contact Information</h2>
+<div ng-if='$ctrl.currentStep == 2'>
   <form class='form' name='contactForm'>
     
     <fieldset>
@@ -138,8 +153,7 @@
   </form>
 </div>
 
-<div ng-if='$ctrl.currentStep == 2'>
-  <h2>Enter Your Delivery Information</h2>
+<div ng-if='$ctrl.currentStep == 3'>
   <form class='form' name='deliveryForm'>
     
     <fieldset>
@@ -183,8 +197,4 @@
               ng-disabled="deliveryForm.$invalid">Submit</button>
     </fieldset>
   </form>
-</div>
-
-<div ng-if='$ctrl.currentStep == 3'>
-  <h2>Confirmation</h2>
 </div>

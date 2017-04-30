@@ -1,0 +1,26 @@
+$progress-bar-height: 20px;
+$progress-bar-border-radius: 5px;
+
+.progress-bar {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  height: $progress-bar-height;
+  border-radius: $progress-bar-border-radius;
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: $progress-bar-height;
+    background-color: darken($primary-color, 15);
+    border-radius: $progress-bar-border-radius;
+  }
+
+  &__overlay {
+    transition: width 0.3s;
+    position: absolute;
+    height: $progress-bar-height;
+    background-color: $primary-color;
+    border-radius: $progress-bar-border-radius;
+  }
+}
