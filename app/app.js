@@ -8,6 +8,7 @@ import AutoFocusDirective from './directives/autofocus';
 import TreeFormComponent from './components/tree-form';
 import NavbarComponent from './components/navbar';
 import FooterComponent from './components/footer';
+import ProgressComponent from './components/progress';
 
 angular.module('app', []);
 angular.module('app').filter('cfoYesNo', YesNoFilter);
@@ -17,3 +18,4 @@ angular.module('app').directive('cfoAutoFocus', AutoFocusDirective);
 angular.module('app').component('cfoTreeForm', TreeFormComponent);
 angular.module('app').component('cfoNavbar', NavbarComponent);
 angular.module('app').component('cfoFooter', FooterComponent);
+angular.module('app').component('cfoProgress', ProgressComponent);
