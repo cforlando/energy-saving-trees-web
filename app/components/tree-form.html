@@ -185,15 +185,40 @@
         <button role='button'
                 type='button'
                 name='submitButton'
-                class='button button--success'
-                ng-click='$ctrl.submit()'
-                ng-disabled="deliveryForm.$invalid">Submit</button>
+                class='button button--continue'
+                ng-click='$ctrl.next()'
+                ng-disabled="deliveryForm.$invalid">Confirm</button>
       </fieldset>
     </form>
   </div>
 
   <div ng-if='$ctrl.currentStep == 3'>
-    <h2>Confirmation</h2>
+    <h2>Confirm Your Order</h2>
+    <div class='center'>
+      <img src='{{ $ctrl.trees[$ctrl.tree].image }}' alt='{{ $ctrl.trees[$ctrl.tree].name }}'/>
+      <ul>
+        <li><strong>Tree Name</strong>: {{ $ctrl.trees[$ctrl.tree].name }}</li>
+        <li><strong>Name</strong>: {{ $ctrl.firstName }} {{ $ctrl.lastName }}</li>
+        <li><strong>Email</strong>: {{ $ctrl.email }}</li>
+        <li><strong>Phone</strong>: {{ $ctrl.phone }}</li>
+        <li><strong>Street Address</strong>: {{ $ctrl.address }}</li>
+        <li><strong>Zip Code</strong>: {{ $ctrl.zip }}</li>
+      </ul>
+    </div>
+    <form class='form' name='confirmationForm'>
+      <fieldset class='form__actions'>
+        <button role='button'
+                type='button'
+                name='backButton'
+                class='button button--continue'
+                ng-click='$ctrl.back()'>Back</button>
+        <button role='button'
+                type='button'
+                name='submitButton'
+                class='button button--success'
+                ng-click='$ctrl.submit()'>Submit</button>
+      </fieldset>
+    </form>
   </div>
 
 </div>
