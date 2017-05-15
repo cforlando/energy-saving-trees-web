@@ -35,6 +35,34 @@ module.exports = class Form {
     return this.element.$('input[name="address"]');
   }
 
+  treeImageConfirmation() {
+    return this.element.$('.center img');
+  }
+
+  treeNameConfirmation() {
+    return this.element.all(by.css('ul li')).get(0);
+  }
+
+  fullNameConfirmation() {
+    return this.element.all(by.css('ul li')).get(1);
+  }
+
+  phoneNumberConfirmation() {
+    return this.element.all(by.css('ul li')).get(2);
+  }
+
+  emailConfirmation() {
+    return this.element.all(by.css('ul li')).get(3);
+  }
+
+  streetAddressConfirmation() {
+    return this.element.all(by.css('ul li')).get(4);
+  }
+
+  zipCodeConfirmation() {
+    return this.element.all(by.css('ul li')).get(5);
+  }
+
   nextButton() {
     return this.element.$('button[name="nextButton"]');
   }

@@ -26,9 +26,17 @@ describe('One Person One Tree Multistep Form', ()=> {
     expect(form.formStepTitle().getText()).toEqual('Enter Your Delivery Information');
     expect(form.submitButton().getAttribute('disabled')).toEqual('true');
     form.addressField().sendKeys('123 Foo Street');
-    form.submitButton().click();
+    form.nextButton().click();
 
     // STEP FOUR
     expect(form.formStepTitle().getText()).toEqual('Confirmation');
+    expect(form.treeImageConfirmation().getAttribute('alt')).toEqual('Eagleston Holly');
+    expect(form.treeNameConfirmation().getText()).toEqual('Eagleston Holly');
+    expect(form.fullNameConfirmation().getText()).toEqual('Nathan Explosion');
+    expect(form.phoneNumberConfirmation().getText()).toEqual('111-111-1111');
+    expect(form.emailConfirmation().getText()).toEqual('test@test.com');
+    expect(form.streetAddressConfirmation().getText()).toEqual('123 Foo Street');
+    expect(form.zipCodeConfirmation().getText()).toEqual('32801');
+    form.submitButton().click();
   });
 });
