@@ -28,10 +28,12 @@ export default {
     this.email = '';
     this.phone = '';
 
-    this.currentStep = 0;
+    this.currentStep = 1;
+
+    this.numSteps = 4;
 
     this.back = ()=> {
-      if(this.currentStep === 0) {
+      if(this.currentStep <= 1) {
         return;
       }
 
@@ -39,6 +41,10 @@ export default {
     };
 
     this.next = ()=> {
+      if(this.currentStep >= this.numSteps) {
+        return;
+      }
+
       this.currentStep++;
     };
   }
