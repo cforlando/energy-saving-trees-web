@@ -24,8 +24,6 @@ export default {
     this.firstName = '';
     this.lastName = '';
     this.address = '';
-    this.city = '';
-    this.state = '';
     this.zip = '32801';
     this.email = '';
     this.phone = '';
@@ -49,21 +47,6 @@ export default {
 
       this.currentStep++;
     };
-
-    this.submit = ()=> {
-      console.log('Make call with...', {
-        tree: this.tree,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        email: this.email,
-        phone: this.phone
-      });
-      this.currentStep++;
-    }
   }
 
 }
