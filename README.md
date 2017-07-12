@@ -12,13 +12,27 @@ One Person One Tree web app will allow users to view trees they can have deliver
 
 ## Setup
 
-`npm install webpack -g`
+These are the dependencies you need in order to run the application:
 
-`npm install webpack-dev-server -g`
+- [Install Node]("https://nodejs.org/en/")
 
-`npm install -g protractor`
+Once you have the dependencies:
 
-`webdriver-manager update`
+```bash
+# clone the repo
+git clone https://github.com/cforlando/energy-saving-trees-web.git
+
+# enter the directory
+cd energy-saving-trees-web
+
+# install node dependencies
+npm install
+
+# start the application
+./node_modules/.bin/webpack-dev-server
+```
+
+Then visit [localhost:8080](http://localhost:8080) in your browser
 
 ## Running Tests
 
@@ -26,13 +40,13 @@ Navigate to the root of the project
 
 ### Terminal 1 ( Start our selenium server )
 
-`webdriver-manager update`
+`./node_modules/.bin/webdriver-manager update`
 
-`webdriver-manager start`
+`./node_modules/.bin/webdriver-manager start`
 
 ### Terminal 2 ( Start our local application server )
 
-`webpack-dev-server`
+`./node_modules/.bin/webpack-dev-server`
 
 
 ### Terminal 3 ( Run tests )
